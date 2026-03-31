@@ -1,52 +1,96 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TestSite</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #222;
-      text-align: center;
-      padding: 60px;
-    }
-
-    h1 {
-      color: #2563eb;
-    }
-
-    .card {
-      max-width: 700px;
-      margin: 0 auto;
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 10px;
-      background: #2563eb;
-      color: white;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button:hover {
-      opacity: 0.9;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Automation Landing</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="card">
-    <h1>Сайт працює 🚀</h1>
-    <p>Вітаю, ти успішно задеплоїв сайт на Railway.</p>
-    <button onclick="alert('Все працює!')">Перевірити кнопку</button>
-  </div>
+  <header class="hero">
+    <nav class="nav">
+      <div class="logo">AI Automation</div>
+      <a class="nav-btn" href="#contact">Зв’язатися</a>
+    </nav>
+
+    <div class="hero-content">
+      <p class="eyebrow">AI systems • n8n • automation</p>
+      <h1>Створюю AI-системи та автоматизації для бізнесу</h1>
+      <p class="subtitle">
+        Лендінги, Telegram-боти, AI-асистенти, інтеграції з n8n, CRM та Google Sheets.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Отримати консультацію</a>
+        <a class="btn btn-secondary" href="#services">Мої послуги</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="services">
+      <div class="container">
+        <h2>Що я роблю</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>AI-боти</h3>
+            <p>Telegram-боти, чат-асистенти, базова логіка відповідей, інтеграції з AI-моделями.</p>
+          </div>
+          <div class="card">
+            <h3>n8n автоматизації</h3>
+            <p>Обробка заявок, CRM-флоу, webhook-сценарії, інтеграції з Google Sheets і месенджерами.</p>
+          </div>
+          <div class="card">
+            <h3>Landing Page</h3>
+            <p>Прості сайти, сторінки для збору лідів, презентація продукту та контактні форми.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="about">
+      <div class="container">
+        <h2>Як я працюю</h2>
+        <div class="steps">
+          <div class="step">
+            <span>1</span>
+            <p>Збираю задачу та бізнес-процес</p>
+          </div>
+          <div class="step">
+            <span>2</span>
+            <p>Проєктую автоматизацію або AI-систему</p>
+          </div>
+          <div class="step">
+            <span>3</span>
+            <p>Запускаю MVP і тестую на реальних даних</p>
+          </div>
+          <div class="step">
+            <span>4</span>
+            <p>Покращую та готую до стабільної роботи</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <h2>Залишити заявку</h2>
+        <p class="contact-text">
+          Натисни кнопку нижче, щоб перевірити UI або підключити форму до n8n пізніше.
+        </p>
+
+        <div class="contact-box">
+          <button id="ctaButton" class="btn btn-primary">Надіслати заявку</button>
+          <p id="resultMessage" class="result-message"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 AI Automation. Усі права захищені.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
