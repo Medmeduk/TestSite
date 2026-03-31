@@ -1,96 +1,321 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Automation Landing</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iStore — Світ Apple у ваших руках</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at center, #ffffff 0%, #f5f5f7 100%);
+        }
+
+        .product-card {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .apple-button {
+            transition: all 0.3s ease;
+        }
+
+        .apple-button:hover {
+            opacity: 0.8;
+            transform: scale(0.98);
+        }
+
+        /* Анімація появи */
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .glass-nav {
+                background: rgba(0, 0, 0, 0.8);
+            }
+            .hero-gradient {
+                background: radial-gradient(circle at center, #1d1d1f 0%, #000000 100%);
+            }
+            body {
+                background-color: #000;
+                color: #fff;
+            }
+            .product-card {
+                background-color: #1d1d1f;
+            }
+            .text-gray-600 { color: #a1a1a6; }
+            .bg-white { background-color: #1d1d1f; }
+        }
+    </style>
 </head>
-<body>
-  <header class="hero">
-    <nav class="nav">
-      <div class="logo">AI Automation</div>
-      <a class="nav-btn" href="#contact">Зв’язатися</a>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Навігація -->
+    <nav class="glass-nav fixed top-0 w-full z-50 border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="text-xl font-semibold flex items-center gap-2">
+                <i class="fab fa-apple text-2xl"></i>
+                <span>iStore</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#products" class="hover:text-blue-600 transition">Продукти</a>
+                <a href="#advantages" class="hover:text-blue-600 transition">Переваги</a>
+                <a href="#tradein" class="hover:text-blue-600 transition">Trade-In</a>
+                <a href="#faq" class="hover:text-blue-600 transition">FAQ</a>
+            </div>
+            <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-medium apple-button">
+                Консультація
+            </a>
+        </div>
     </nav>
 
-    <div class="hero-content">
-      <p class="eyebrow">AI systems • n8n • automation</p>
-      <h1>Створюю AI-системи та автоматизації для бізнесу</h1>
-      <p class="subtitle">
-        Лендінги, Telegram-боти, AI-асистенти, інтеграції з n8n, CRM та Google Sheets.
-      </p>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Отримати консультацію</a>
-        <a class="btn btn-secondary" href="#services">Мої послуги</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="section" id="services">
-      <div class="container">
-        <h2>Що я роблю</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>AI-боти</h3>
-            <p>Telegram-боти, чат-асистенти, базова логіка відповідей, інтеграції з AI-моделями.</p>
-          </div>
-          <div class="card">
-            <h3>n8n автоматизації</h3>
-            <p>Обробка заявок, CRM-флоу, webhook-сценарії, інтеграції з Google Sheets і месенджерами.</p>
-          </div>
-          <div class="card">
-            <h3>Landing Page</h3>
-            <p>Прості сайти, сторінки для збору лідів, презентація продукту та контактні форми.</p>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-32 pb-20 px-6 text-center">
+        <div class="max-w-4xl mx-auto fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">Технології, що надихають.</h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed">
+                Повний асортимент оригінальної техніки Apple: від найновіших iPhone до вишуканих Apple Watch. Твій квиток в екосистему досконалості.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#products" class="bg-black dark:bg-white dark:text-black text-white px-8 py-4 rounded-full text-lg font-semibold apple-button">
+                    Перейти до каталогу
+                </a>
+                <a href="#tradein" class="border border-gray-300 dark:border-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    Дізнатись про Trade-In
+                </a>
+            </div>
+            <div class="mt-16 flex justify-center gap-8 text-sm text-gray-500">
+                <span><i class="fas fa-check-circle text-blue-500 mr-1"></i> Тільки оригінал</span>
+                <span><i class="fas fa-shield-alt text-blue-500 mr-1"></i> Офіційна гарантія</span>
+                <span><i class="fas fa-sync text-blue-500 mr-1"></i> Швидкий обмін</span>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section class="section section-dark" id="about">
-      <div class="container">
-        <h2>Як я працюю</h2>
-        <div class="steps">
-          <div class="step">
-            <span>1</span>
-            <p>Збираю задачу та бізнес-процес</p>
-          </div>
-          <div class="step">
-            <span>2</span>
-            <p>Проєктую автоматизацію або AI-систему</p>
-          </div>
-          <div class="step">
-            <span>3</span>
-            <p>Запускаю MVP і тестую на реальних даних</p>
-          </div>
-          <div class="step">
-            <span>4</span>
-            <p>Покращую та готую до стабільної роботи</p>
-          </div>
+    <!-- Категорії (Products) -->
+    <section id="products" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Обирайте свій пристрій</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- iPhone -->
+            <div class="product-card bg-white p-8 rounded-3xl border border-gray-100 dark:border-gray-800 flex flex-col justify-between">
+                <div>
+                    <span class="text-orange-500 font-semibold text-sm uppercase tracking-wider">Новинка</span>
+                    <h3 class="text-2xl font-bold mt-2 mb-4">iPhone</h3>
+                    <p class="text-gray-600 mb-6">Найпотужніші камери та титановий корпус. Створений бути першим.</p>
+                </div>
+                <div class="h-48 flex items-center justify-center bg-gray-50 dark:bg-zinc-900 rounded-2xl mb-6">
+                   <i class="fas fa-mobile-alt text-6xl text-gray-300"></i>
+                </div>
+                <button class="w-full py-3 bg-gray-100 dark:bg-gray-800 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition">Детальніше</button>
+            </div>
+
+            <!-- MacBook -->
+            <div class="product-card bg-white p-8 rounded-3xl border border-gray-100 dark:border-gray-800 flex flex-col justify-between">
+                <div>
+                    <span class="text-blue-500 font-semibold text-sm uppercase tracking-wider">Для профі</span>
+                    <h3 class="text-2xl font-bold mt-2 mb-4">MacBook</h3>
+                    <p class="text-gray-600 mb-6">Сила процесорів M-серії. До 22 годин автономної роботи.</p>
+                </div>
+                <div class="h-48 flex items-center justify-center bg-gray-50 dark:bg-zinc-900 rounded-2xl mb-6">
+                    <i class="fas fa-laptop text-6xl text-gray-300"></i>
+                </div>
+                <button class="w-full py-3 bg-gray-100 dark:bg-gray-800 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition">Детальніше</button>
+            </div>
+
+            <!-- Apple Watch -->
+            <div class="product-card bg-white p-8 rounded-3xl border border-gray-100 dark:border-gray-800 flex flex-col justify-between">
+                <div>
+                    <span class="text-green-500 font-semibold text-sm uppercase tracking-wider">Здоров'я</span>
+                    <h3 class="text-2xl font-bold mt-2 mb-4">Apple Watch</h3>
+                    <p class="text-gray-600 mb-6">Ваш персональний тренер та помічник на зап'ясті.</p>
+                </div>
+                <div class="h-48 flex items-center justify-center bg-gray-50 dark:bg-zinc-900 rounded-2xl mb-6">
+                    <i class="fas fa-clock text-6xl text-gray-300"></i>
+                </div>
+                <button class="w-full py-3 bg-gray-100 dark:bg-gray-800 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition">Детальніше</button>
+            </div>
+
         </div>
-      </div>
     </section>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <h2>Залишити заявку</h2>
-        <p class="contact-text">
-          Натисни кнопку нижче, щоб перевірити UI або підключити форму до n8n пізніше.
-        </p>
-
-        <div class="contact-box">
-          <button id="ctaButton" class="btn btn-primary">Надіслати заявку</button>
-          <p id="resultMessage" class="result-message"></p>
+    <!-- Переваги -->
+    <section id="advantages" class="py-20 bg-gray-100 dark:bg-zinc-900 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h4 class="font-bold mb-2 text-lg">100% Оригінал</h4>
+                    <p class="text-sm text-gray-600">Ніяких копій. Тільки нова техніка в заводському пакуванні.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h4 class="font-bold mb-2 text-lg">Вигідний Trade-In</h4>
+                    <p class="text-sm text-gray-600">Обмінюйте старий гаджет на новий з максимальною вигодою.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 text-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4 class="font-bold mb-2 text-lg">Сервіс 24/7</h4>
+                    <p class="text-sm text-gray-600">Допоможемо з налаштуванням та перенесенням даних.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h4 class="font-bold mb-2 text-lg">Швидка доставка</h4>
+                    <p class="text-sm text-gray-600">Відправка в день замовлення по всій Україні.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-  </main>
 
-  <footer class="footer">
-    <p>© 2026 AI Automation. Усі права захищені.</p>
-  </footer>
+    <!-- FAQ -->
+    <section id="faq" class="py-24 px-6 max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">Питання та відповіді</h2>
+        <div class="space-y-6">
+            <details class="group border-b border-gray-200 dark:border-gray-800 pb-4 cursor-pointer">
+                <summary class="flex justify-between items-center font-semibold text-lg list-none">
+                    Чи є розстрочка?
+                    <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                </summary>
+                <p class="mt-4 text-gray-600 leading-relaxed">
+                    Так, ми працюємо з провідними банками України. Ви можете оформити «Оплату частинами» або розстрочку терміном до 24 місяців безпосередньо на сайті або в нашому магазині.
+                </p>
+            </details>
+            <details class="group border-b border-gray-200 dark:border-gray-800 pb-4 cursor-pointer">
+                <summary class="flex justify-between items-center font-semibold text-lg list-none">
+                    Яка гарантія на техніку?
+                    <i class="fas fa-chevron-down group-open:rotate-180 transition"></i>
+                </summary>
+                <p class="mt-4 text-gray-600 leading-relaxed">
+                    Ми надаємо стандартну гарантію 12 місяців на всі нові пристрої. Також є можливість розширити гарантію до 2 років за програмою iStore Care.
+                </p>
+            </details>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- Контактна форма -->
+    <section id="contact" class="py-24 px-6 bg-black text-white">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-bold mb-6 tracking-tight">Готові до оновлення?</h2>
+                <p class="text-gray-400 mb-8 text-lg">Залиште заявку, і наш експерт допоможе обрати ідеальну конфігурацію та розповість про умови Trade-In.</p>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center text-blue-500">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold">Зателефонуйте нам</p>
+                            <p class="font-bold">+38 (0XX) XXX-XX-XX</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center text-blue-500">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest font-semibold">Ми поруч</p>
+                            <p class="font-bold">м. Київ, вул. Хрещатик, 1</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 pt-4">
+                        <a href="#" class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition text-lg"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition text-lg"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-zinc-900 p-10 rounded-[2.5rem] border border-white/5 shadow-2xl">
+                <form id="contactForm" class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wider">Ваше ім'я</label>
+                        <input type="text" required name="user_name" class="w-full bg-zinc-800 border border-zinc-700/50 rounded-2xl p-4 focus:ring-2 focus:ring-blue-600 focus:outline-none transition placeholder:text-zinc-600" placeholder="Наприклад, Олександр">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wider">Номер телефону</label>
+                        <input type="tel" required name="user_phone" class="w-full bg-zinc-800 border border-zinc-700/50 rounded-2xl p-4 focus:ring-2 focus:ring-blue-600 focus:outline-none transition placeholder:text-zinc-600" placeholder="+38 0__ ___ __ __">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-2 uppercase tracking-wider">Telegram ID</label>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 font-bold">@</span>
+                            <input type="text" name="tg_user_id" class="w-full bg-zinc-800 border border-zinc-700/50 rounded-2xl p-4 pl-10 focus:ring-2 focus:ring-blue-600 focus:outline-none transition placeholder:text-zinc-600" placeholder="username_або_id">
+                        </div>
+                        <p class="text-[10px] text-gray-500 mt-2 px-1 italic">Додайте Telegram ID для швидкого зв'язку в месенджері</p>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-5 rounded-2xl font-bold text-lg hover:bg-blue-500 shadow-lg shadow-blue-600/20 active:scale-[0.98] transition-all mt-4">
+                        Отримати консультацію
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 text-center text-sm text-gray-500">
+        <p>&copy; 2024 iStore. Всі права захищені. Не є офіційним сайтом Apple Inc.</p>
+    </footer>
+
+    <script>
+        // Проста обробка форми
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'Надсилаємо дані...';
+            btn.disabled = true;
+            
+            // Отримання значень
+            const formData = new FormData(this);
+            console.log('Дані форми:', {
+                name: formData.get('user_name'),
+                phone: formData.get('user_phone'),
+                tg_id: formData.get('tg_user_id')
+            });
+            
+            setTimeout(() => {
+                btn.innerText = 'Дякуємо! Зв’яжемося незабаром.';
+                btn.classList.remove('bg-blue-600');
+                btn.classList.add('bg-green-600');
+                this.reset();
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('bg-green-600');
+                    btn.classList.add('bg-blue-600');
+                    btn.disabled = false;
+                }, 5000);
+            }, 1500);
+        });
+    </script>
 </body>
 </html>
